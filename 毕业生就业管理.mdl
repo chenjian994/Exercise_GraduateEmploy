@@ -1351,23 +1351,6 @@
 			icon_style 	"Icon"
 			line_color 	3342489
 			quidu      	"51FF57E202EB"
-			compartment 	(object Compartment
-			    Parent_View 	@37
-			    location   	(783, 903)
-			    font       	(object Font
-				size       	12
-				face       	"Arial"
-				bold       	FALSE
-				italics    	FALSE
-				underline  	FALSE
-				strike     	FALSE
-				color      	0
-				default_color 	TRUE)
-			    icon_style 	"Icon"
-			    anchor     	2
-			    nlines     	20
-			    max_width  	325
-			    justify    	0)
 			annotation 	8
 			autoResize 	TRUE)
 		    (object AssociationViewNew "$UNNAMED$12" @38
@@ -1951,23 +1934,6 @@
 			icon_style 	"Icon"
 			line_color 	3342489
 			quidu      	"51FF5810017A"
-			compartment 	(object Compartment
-			    Parent_View 	@71
-			    location   	(1639, 1649)
-			    font       	(object Font
-				size       	12
-				face       	"Arial"
-				bold       	FALSE
-				italics    	FALSE
-				underline  	FALSE
-				strike     	FALSE
-				color      	0
-				default_color 	TRUE)
-			    icon_style 	"Icon"
-			    anchor     	2
-			    nlines     	14
-			    max_width  	325
-			    justify    	0)
 			annotation 	8
 			autoResize 	TRUE)
 		    (object AssociationViewNew "$UNNAMED$33" @72
@@ -2350,7 +2316,7 @@
 		items      	(list diagram_item_list
 		    (object ClassView "Class" "Use Case View::管理员" @84
 			ShowCompartmentStereotypes 	TRUE
-			location   	(386, 229)
+			location   	(316, 376)
 			font       	(object Font
 			    size       	12
 			    face       	"Arial"
@@ -2362,7 +2328,7 @@
 			    default_color 	TRUE)
 			label      	(object ItemLabel
 			    Parent_View 	@84
-			    location   	(150, 169)
+			    location   	(80, 316)
 			    fill_color 	13434879
 			    nlines     	1
 			    max_width  	472
@@ -2370,7 +2336,7 @@
 			    label      	"管理员")
 			stereotype 	(object ItemLabel
 			    Parent_View 	@84
-			    location   	(150, 119)
+			    location   	(80, 266)
 			    fill_color 	13434879
 			    anchor     	10
 			    nlines     	1
@@ -2415,7 +2381,7 @@
 			quidu      	"5201ECB603C6"
 			compartment 	(object Compartment
 			    Parent_View 	@85
-			    location   	(733, 1737)
+			    location   	(718, 1737)
 			    font       	(object Font
 				size       	10
 				face       	"Arial"
@@ -2449,19 +2415,19 @@
 			    default_color 	TRUE)
 			label      	(object ItemLabel
 			    Parent_View 	@86
-			    location   	(25, 2161)
+			    location   	(23, 2161)
 			    fill_color 	13434879
 			    nlines     	1
-			    max_width  	616
+			    max_width  	620
 			    justify    	0
 			    label      	"毕业生")
 			stereotype 	(object ItemLabel
 			    Parent_View 	@86
-			    location   	(25, 2111)
+			    location   	(23, 2111)
 			    fill_color 	13434879
 			    anchor     	10
 			    nlines     	1
-			    max_width  	616
+			    max_width  	620
 			    justify    	0
 			    label      	"<<Actor>>")
 			icon       	"Actor"
@@ -2471,7 +2437,7 @@
 			quidu      	"51FF57E202EB"
 			compartment 	(object Compartment
 			    Parent_View 	@86
-			    location   	(25, 2282)
+			    location   	(23, 2282)
 			    font       	(object Font
 				size       	10
 				face       	"Arial"
@@ -2486,7 +2452,7 @@
 			    anchor     	2
 			    nlines     	2
 			    max_width  	526)
-			width      	634
+			width      	638
 			height     	308
 			annotation 	8
 			autoResize 	TRUE)
@@ -2527,7 +2493,7 @@
 			annotation 	8
 			autoResize 	TRUE)
 		    (object AssociationViewNew "申请" @89
-			location   	(1043, 2253)
+			location   	(1044, 2253)
 			font       	(object Font
 			    size       	12
 			    face       	"Arial"
@@ -2539,7 +2505,7 @@
 			    default_color 	TRUE)
 			label      	(object SegLabel @90
 			    Parent_View 	@89
-			    location   	(1053, 2224)
+			    location   	(1054, 2224)
 			    font       	(object Font
 				size       	12
 				face       	"Arial"
@@ -2564,7 +2530,7 @@
 			roleview_list 	(list RoleViews
 			    (object RoleView "$UNNAMED$51" @91
 				Parent_View 	@89
-				location   	(551, 790)
+				location   	(552, 790)
 				stereotype 	TRUE
 				line_color 	3342489
 				quidu      	"5201EC7D01C5"
@@ -2573,7 +2539,7 @@
 				line_style 	0)
 			    (object RoleView "$UNNAMED$52" @92
 				Parent_View 	@89
-				location   	(551, 790)
+				location   	(552, 790)
 				stereotype 	TRUE
 				line_color 	3342489
 				quidu      	"5201EC7D01C7"
@@ -2596,19 +2562,19 @@
 			    default_color 	TRUE)
 			label      	(object ItemLabel
 			    Parent_View 	@93
-			    location   	(1185, 794)
+			    location   	(1183, 794)
 			    fill_color 	13434879
 			    nlines     	1
-			    max_width  	708
+			    max_width  	712
 			    justify    	0
 			    label      	"企业")
 			stereotype 	(object ItemLabel
 			    Parent_View 	@93
-			    location   	(1185, 744)
+			    location   	(1183, 744)
 			    fill_color 	13434879
 			    anchor     	10
 			    nlines     	1
-			    max_width  	708
+			    max_width  	712
 			    justify    	0
 			    label      	"<<Actor>>")
 			icon       	"Actor"
@@ -2618,7 +2584,7 @@
 			quidu      	"51FF5810017A"
 			compartment 	(object Compartment
 			    Parent_View 	@93
-			    location   	(1185, 915)
+			    location   	(1183, 915)
 			    font       	(object Font
 				size       	10
 				face       	"Arial"
@@ -2633,7 +2599,7 @@
 			    anchor     	2
 			    nlines     	2
 			    max_width  	604)
-			width      	726
+			width      	730
 			height     	308
 			annotation 	8
 			autoResize 	TRUE)
@@ -2727,7 +2693,7 @@
 			quidu      	"520300F6033B"
 			compartment 	(object Compartment
 			    Parent_View 	@99
-			    location   	(51, 1629)
+			    location   	(34, 1629)
 			    font       	(object Font
 				size       	10
 				face       	"Arial"
@@ -2775,7 +2741,7 @@
 			quidu      	"520301500124"
 			compartment 	(object Compartment
 			    Parent_View 	@100
-			    location   	(1164, 269)
+			    location   	(1140, 269)
 			    font       	(object Font
 				size       	10
 				face       	"Arial"
@@ -2799,7 +2765,7 @@
 			IncludeAttribute 	TRUE
 			IncludeOperation 	TRUE
 			ShowOperationSignature 	TRUE
-			location   	(348, 889)
+			location   	(543, 889)
 			font       	(object Font
 			    size       	12
 			    face       	"Arial"
@@ -2811,7 +2777,7 @@
 			    default_color 	TRUE)
 			label      	(object ItemLabel
 			    Parent_View 	@101
-			    location   	(347, 997)
+			    location   	(542, 997)
 			    anchor_loc 	1
 			    nlines     	1
 			    max_width  	587
@@ -2824,7 +2790,7 @@
 			quidu      	"520301530342"
 			compartment 	(object Compartment
 			    Parent_View 	@101
-			    location   	(-144, 1041)
+			    location   	(18, 1041)
 			    font       	(object Font
 				size       	10
 				face       	"Arial"
