@@ -1,7 +1,11 @@
 package com.cdvtc.graduateemploy.action;
 
+import java.util.Enumeration;
+
 import javax.annotation.Resource;
 
+import org.apache.struts2.ServletActionContext;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import com.cdvtc.graduateemploy.model.Admin;
@@ -14,6 +18,7 @@ import com.opensymphony.xwork2.ActionSupport;
 
 @SuppressWarnings("serial")
 @Component("userAction")
+@Scope("prototype")
 public class UserAction extends ActionSupport {
 	@Resource(name="adminService")
 	public void setAs(IAdminService as) {
@@ -30,19 +35,59 @@ public class UserAction extends ActionSupport {
 		this.es = es;
 	}
 
+	@SuppressWarnings("deprecation")
 	public String login() {
-		System.out.println("username:" + getUsername() + "   password: " + getPassword() + "  identity" + idenities[getIdentity()]);
+		if(null==getUsername() || "".equals(getUsername()) || null == getPassword() || "".equals(getPassword())) {
+			addFieldError("loginErr", "用户名和密码不能为空");
+			return "input";
+		}
+		System.out.println("username:" + getUsername() + "   password: " + getPassword() + "  identity：" + idenities[getIdentity()]);
+		String err = "";
 		if(0 == getIdentity()) {
 			Admin admin = new Admin();
 			admin.setUsername(getUsername());
 			admin.setPassword(getPassword());
 			boolean bool = as.login(admin);
-			System.out.println(bool);
+			System.out.println("_______" + bool);
+			if(bool){
+				ServletActionContext.getRequest().getSession().putValue("userId", admin.getId());
+				ServletActionContext.getRequest().getSession().putValue("username", admin.getUsername());
+				return "admin";
+			}
+			else err="用户名或密码错误";
 		} else if (1 == getIdentity()) {
-			
+			Enterprise enterprise = new Enterprise();
+			enterprise.setUsername(getUsername());
+			enterprise.setPassword(getPassword());
+			enterprise = es.login(enterprise);
+			if(null != enterprise) 
+				if(!enterprise.isVerified())
+					err="你的注册尚未通过验证";
+				else {
+					ServletActionContext.getRequest().getSession().putValue("userId", enterprise.getId());
+					ServletActionContext.getRequest().getSession().putValue("username", enterprise.getUsername());					
+					return "enterprise";
+				}
+			else 
+				err="用户名或密码错误";
 		} else if(2 == getIdentity()) {
-			
+			Graduate graduate = new Graduate();
+			graduate.setUsername(getUsername());
+			graduate.setPassword(getPassword());
+			graduate = gs.login(graduate);
+			if(null != graduate) {
+				if(!graduate.isVerified()) 
+					err="用户名或密码错误";
+				else {
+					ServletActionContext.getRequest().getSession().putValue("userId", graduate.getNo());
+					ServletActionContext.getRequest().getSession().putValue("username", graduate.getUsername());
+					return "graduate";
+				}
+			}
+			else
+				err="你的注册尚未通过验证";
 		}
+		addFieldError("loginErr", err);
 		return "input";
 	}
 	
@@ -50,7 +95,7 @@ public class UserAction extends ActionSupport {
 		System.out.println("username:" + getUsername() + "  password:" + getPassword() + "   rePassword:" + getRePassword()
 				+ "   identity:" + idenities[getIdentity()] + "   email:" + getEmail() + "   phone:" + getPhone());
 		if(getPassword() != null && !getPassword().equals(getRePassword())) {
-			addActionError("两次输入的密码不一致");
+			addFieldError("registerErr", "两次输入的密码不一致");
 			return INPUT;
 		}
 		if(1 == getIdentity()) {
@@ -69,6 +114,13 @@ public class UserAction extends ActionSupport {
 			gs.register(graduate);
 		}
 		return "registerSuc";
+	}
+	public String logout() {
+		Enumeration<String> e = ServletActionContext.getRequest().getSession().getAttributeNames();
+		while(e.hasMoreElements()) {
+			ServletActionContext.getRequest().getSession().removeAttribute(e.nextElement());
+		}
+		return INPUT;
 	}
 	
 	public String getUsername() {

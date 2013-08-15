@@ -15,8 +15,25 @@
     		<result name="input">/register.jsp</result>
     	</action>
     	<action name="login" class="userAction" method="login">
-    		<result name="registerSuc">/register_suc.jsp</result>
+    		<result name="admin">/admin.jsp</result>
+    		<result name="enterprise">/enterprise.jsp</result>
+    		<result name="graduate">/graduate.jsp</result>
     		<result name="input">/index.jsp</result>
+    	</action>
+    	<action name="logout" class="userAction" method="logout">
+    		<result name="input">/index.jsp</result>
+    	</action>
+    	<action name="admin" class="adminAction">
+    		<result name="regInfoVerify">/regInfoVerify.jsp</result>
+    	</action>
+    	<action name="enterprise" class="enterpriseAction">
+    		<result name="infoManage">/enterpriseInfoManage.jsp</result>
+    		<result name="logout" type="redirectAction">logout</result>
+    		<result name="jobManage">/enterpriseJobManage.jsp</result>
+    		<result name="jobInfo">/enterpriseJobInfo.jsp</result>
+    	</action>
+    	<action name="graduate" class="graduateAction">
+    		<result name="profileManage">/graduateProfileManage.jsp</result>
     	</action>
     </package>
 

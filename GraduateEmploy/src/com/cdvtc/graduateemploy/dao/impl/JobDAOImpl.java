@@ -31,7 +31,7 @@ public class JobDAOImpl implements IJobDAO {
 
 	public Job findById(int id) {
 		Session s = sf.getCurrentSession();
-		String hql = "from Job j = where j.id=?";
+		String hql = "from Job j where j.id=?";
 		Job job = (Job)s.createQuery(hql).setInteger(0, id).uniqueResult();
 		return job;
 	}

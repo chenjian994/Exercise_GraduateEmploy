@@ -7,6 +7,7 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -22,7 +23,7 @@ public class Enterprise {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	@OneToMany(mappedBy="enterprise", cascade=CascadeType.ALL)
+	@OneToMany(mappedBy="enterprise", cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 	public Set<Job> getJobs() {
 		return jobs;
 	}

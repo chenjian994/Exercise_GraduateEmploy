@@ -33,7 +33,8 @@
 				<!-- end .header -->
 			</div>
 			<div class="content_login">
-				<s:fielderror />
+				<s:fielderror fieldName="loginErr"/>
+				<s:debug></s:debug>
 				<form method="post" action="login" >
 				<table class="login_tab">
 					<tr>

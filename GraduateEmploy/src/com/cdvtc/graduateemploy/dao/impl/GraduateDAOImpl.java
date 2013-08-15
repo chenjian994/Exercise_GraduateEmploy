@@ -1,5 +1,7 @@
 package com.cdvtc.graduateemploy.dao.impl;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.hibernate.Session;
@@ -25,14 +27,17 @@ public class GraduateDAOImpl implements IGraduateDAO {
 		return false;
 	}
 	public Graduate findById(int id) {
-		return null;
+		Session s = sf.getCurrentSession();
+		String hql = "from Graduate g where g.id=?";
+		return (Graduate)s.createQuery(hql).setInteger(0, id).uniqueResult();
 	}
-	public boolean login(Graduate graduate) {
+	public Graduate login(Graduate graduate) {
 		Session s = sf.getCurrentSession();
 		String hql = "from Graduate grad where grad.username=? and grad.password=?";
-		int size = s.createQuery(hql).setString(0, graduate.getUsername()).setString(1, graduate.getPassword()).list().size();
-		if(size > 0) return true;
-		return false;
+		List list = s.createQuery(hql).setString(0, graduate.getUsername()).setString(1, graduate.getPassword()).list();
+		if(list.size() > 0) 
+			return (Graduate) list.get(0);
+		return null;
 	}
 	public boolean register(Graduate graduate) {
 		Session s = sf.getCurrentSession();
@@ -43,5 +48,11 @@ public class GraduateDAOImpl implements IGraduateDAO {
 		Session s = sf.getCurrentSession();
 		s.update(graduate);
 		return true;
+	}
+	@SuppressWarnings("unchecked")
+	public List<Graduate> findByVerify(Boolean verify) {
+		Session s = sf.getCurrentSession();
+		String hql = "from Graduate g where g.verified=?";
+		return (List<Graduate>)s.createQuery(hql).setBoolean(0, verify).list();
 	}
 }

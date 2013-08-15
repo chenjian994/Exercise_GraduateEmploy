@@ -3,11 +3,12 @@ package com.cdvtc.graduateemploy.service.impl;
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.cdvtc.graduateemploy.dao.IJobDAO;
 import com.cdvtc.graduateemploy.model.Job;
 import com.cdvtc.graduateemploy.service.IJobService;
-
+@Transactional
 @Component("jobService")
 public class JobServiceImpl implements IJobService {
 	@Resource(name="jobDAO")

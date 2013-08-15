@@ -9,14 +9,13 @@ import com.cdvtc.graduateemploy.dao.IAdminDAO;
 import com.cdvtc.graduateemploy.model.Admin;
 import com.cdvtc.graduateemploy.service.IAdminService;
 
+@Transactional
 @Component("adminService")
 public class AdminServiceImpl implements IAdminService {
-	@Transactional
 	public boolean login(Admin admin) {
 		return adminDAO.login(admin);
 	}
 
-	@Transactional
 	public boolean update(Admin admin) {
 		return adminDAO.update(admin);
 	}

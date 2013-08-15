@@ -17,6 +17,12 @@ import javax.persistence.Table;
 @Entity
 @Table(name="t_job")
 public class Job {
+	public int getCount() {
+		return count;
+	}
+	public void setCount(int count) {
+		this.count = count;
+	}
 	@ManyToMany(mappedBy="jobs", cascade=CascadeType.ALL)
 	public Set<Graduate> getGraduates() {
 		return graduates;
@@ -112,6 +118,7 @@ public class Job {
 	private String name;
 	private String age;
 	private String sex;
+	private int count;
 	private String background;
 	private String workExper;
 	private String employMode;

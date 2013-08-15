@@ -118,7 +118,17 @@ a:hover, a:active, a:focus { /* 此组选择器将为键盘导航者提供与鼠
 }
 .header_exit {
 	padding:3px;
-	margin-left:770px;
+	float:right;
+	margin-right:40px;
 	font-family:"微软雅黑";
 	font-size:12px;
+}
+.verify_info {
+	border: 1px solid #CD853F;
+	width:800px;
+	margin:20px auto;
+	text-align:center;
+}
+.verify_info tr td {
+	border: 1px solid #CD853F;
 }

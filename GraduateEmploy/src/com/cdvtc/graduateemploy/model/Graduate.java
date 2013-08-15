@@ -6,6 +6,7 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -28,7 +29,7 @@ public class Graduate {
 	public void setJobs(Set<Job> jobs) {
 		this.jobs = jobs;
 	}
-	@OneToMany(mappedBy="graduate", cascade=CascadeType.ALL)
+	@OneToMany(mappedBy="graduate", cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 	public Set<Profile> getProfiles() {
 		return profiles;
 	}
