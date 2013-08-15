@@ -8,7 +8,7 @@
 		<div class="header_menu header_link">
 			<a href="enterprise.jsp">首页</a>
 			<a href="graduate!profileManage">个人简历管理</a>
-			<a href="enterprise!jobManage">职位申请</a>
+			<a href="graduate!jobList">职位申请</a>
 		</div>
 		<div class="header_exit header_link">
 			欢迎你&nbsp;&nbsp;

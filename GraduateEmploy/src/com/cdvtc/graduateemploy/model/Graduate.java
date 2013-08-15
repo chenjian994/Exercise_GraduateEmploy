@@ -29,7 +29,7 @@ public class Graduate {
 	public void setJobs(Set<Job> jobs) {
 		this.jobs = jobs;
 	}
-	@OneToMany(mappedBy="graduate", cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="graduate", cascade=CascadeType.ALL)
 	public Set<Profile> getProfiles() {
 		return profiles;
 	}

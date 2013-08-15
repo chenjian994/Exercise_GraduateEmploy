@@ -31,9 +31,14 @@
     		<result name="logout" type="redirectAction">logout</result>
     		<result name="jobManage">/enterpriseJobManage.jsp</result>
     		<result name="jobInfo">/enterpriseJobInfo.jsp</result>
+    		<result name="verifyProfile">/enterpriseVerifyProfile.jsp</result>
+    		<result name="profileInfo">/enterpriseProfileInfo.jsp</result>
     	</action>
     	<action name="graduate" class="graduateAction">
     		<result name="profileManage">/graduateProfileManage.jsp</result>
+    		<result name="showProfile">/graduateProfileInfo.jsp</result>
+    		<result name="jobList">/graduateApplyJob.jsp</result>
+    		<result name="jobInfo">/graduateJobInfo.jsp</result>
     	</action>
     </package>
 

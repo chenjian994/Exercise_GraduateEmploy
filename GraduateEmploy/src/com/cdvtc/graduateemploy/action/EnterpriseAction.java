@@ -12,13 +12,25 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import com.cdvtc.graduateemploy.model.Enterprise;
+import com.cdvtc.graduateemploy.model.Graduate;
 import com.cdvtc.graduateemploy.model.Job;
 import com.cdvtc.graduateemploy.service.IEnterpriseService;
 import com.cdvtc.graduateemploy.service.IJobService;
+import com.cdvtc.graduateemploy.service.IGraduateService;
 
 @Component("enterpriseAction")
 @Scope("prototype")
 public class EnterpriseAction {
+	@Resource(name="graduateService")
+	public void setGs(IGraduateService gs) {
+		this.gs = gs;
+	}
+	public Graduate getGraduate() {
+		return graduate;
+	}
+	public void setGraduate(Graduate graduate) {
+		this.graduate = graduate;
+	}
 	@Resource(name="jobService")
 	public void setJobService(IJobService jobService) {
 		this.jobService = jobService;
@@ -92,10 +104,27 @@ public class EnterpriseAction {
 		return jobManage();
 	}
 	public String jobInfo() {
+		if(null == ServletActionContext.getRequest().getSession().getAttribute("userId") || "".equals(ServletActionContext.getRequest().getSession().getAttribute("userId")))
+			return "logout";
 		int id = Integer.parseInt(ServletActionContext.getRequest().getParameter("id"));
 		job = jobService.findById(id);
 		return "jobInfo";
 	}
+	public String verifyProfile() {
+		if(null == ServletActionContext.getRequest().getSession().getAttribute("userId") || "".equals(ServletActionContext.getRequest().getSession().getAttribute("userId")))
+			return "logout";
+		int id = (Integer)ServletActionContext.getRequest().getSession().getAttribute("userId");
+		enterprise = es.findById(id);
+		jobs = new ArrayList<Job>(enterprise.getJobs());
+		return "verifyProfile";
+	}
+	public String profileInfo() {
+		int id = Integer.parseInt(ServletActionContext.getRequest().getParameter("id"));
+		graduate = gs.findById(id);
+		return "profileInfo";
+	}
+	private IGraduateService gs;
+	private Graduate graduate;
 	private IEnterpriseService es;
 	private boolean isPerfect;
 	private Enterprise enterprise = new Enterprise();

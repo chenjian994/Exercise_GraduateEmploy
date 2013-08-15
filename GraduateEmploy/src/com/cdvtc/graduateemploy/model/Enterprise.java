@@ -23,7 +23,7 @@ public class Enterprise {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	@OneToMany(mappedBy="enterprise", cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="enterprise", cascade=CascadeType.ALL)
 	public Set<Job> getJobs() {
 		return jobs;
 	}

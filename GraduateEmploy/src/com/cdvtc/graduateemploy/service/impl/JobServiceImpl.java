@@ -1,5 +1,7 @@
 package com.cdvtc.graduateemploy.service.impl;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Component;
@@ -36,4 +38,7 @@ public class JobServiceImpl implements IJobService {
 		return jobDAO.update(job);
 	}
 	private IJobDAO jobDAO;
+	public List<Job> list() {
+		return jobDAO.list();
+	}
 }

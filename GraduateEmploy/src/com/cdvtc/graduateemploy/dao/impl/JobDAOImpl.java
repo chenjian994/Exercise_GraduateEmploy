@@ -1,5 +1,7 @@
 package com.cdvtc.graduateemploy.dao.impl;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.hibernate.Session;
@@ -46,6 +48,12 @@ public class JobDAOImpl implements IJobDAO {
 		Session s = sf.getCurrentSession();
 		s.update(job);
 		return true;
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<Job> list() {
+		Session s = sf.getCurrentSession();
+		return (List<Job>)s.createQuery("from Job").list();
 	}
 
 }

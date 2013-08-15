@@ -9,7 +9,7 @@
 			<a href="enterprise.jsp">首页</a>
 			<a href="enterprise!infoManage">企业信息管理</a>
 			<a href="enterprise!jobManage">企业职位管理</a>
-			<a href="#">审核简历</a>
+			<a href="enterprise!verifyProfile">审核简历</a>
 		</div>
 		<div class="header_exit header_link">
 			欢迎你&nbsp;&nbsp;
